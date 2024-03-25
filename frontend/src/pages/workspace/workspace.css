@@ -1,0 +1,118 @@
+.workspace {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+.documents {
+    flex: 1;
+    background-color: rgb(38, 65, 66);
+    padding: 20px;
+    border-radius: 20px;
+}
+.reading {
+    color: #fff;
+    display: flex;
+    gap: 10px;
+    background-color: rgb(62, 104, 106);
+    border-radius: 20px;
+    padding: 10px;
+}
+.profile, .books {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profile > img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.details > p {
+    text-decoration: underline;
+}
+.current-book{
+    display: flex;
+    align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 2px 10px 2px 2px;
+    gap: 5px;
+}
+.current-book > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.books {
+    margin: 10px;
+    gap: 10px;
+}
+.viewer{
+    flex: 2;
+}
+.prompt-input {
+    width: 90%;
+    margin-bottom: 10px;
+}
+.prompt-input > input {
+    width: 100%;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: none;
+    
+}
+.pdf-viewer{
+    width: 90%;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+}
+.book-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+.synopsis-details{
+    max-width: 250px ;
+    text-align: center;
+    /* flex: 1; */
+}
+.synopsis {
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+    background-color: rgb(62, 104, 106);    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+}
+.synopsis > img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.reading-stats {
+    display: flex;
+    gap: 10px;
+}
+.reading-stats > p {
+    color: #000;
+    background-color: #fff;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+}
