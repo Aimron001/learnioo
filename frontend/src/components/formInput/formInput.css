@@ -1,0 +1,22 @@
+.form-input {
+    background-color: rgb(43, 75, 76);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:8px 10px;
+    gap: 10px;
+}
+.form-input > svg {
+    color: aliceblue;
+    font-size: 1.3rem;
+    display: block;
+}
+
+.form-input > input {
+    color: aliceblue;
+    display: block;
+    background-color: transparent;
+    border: none;
+    outline: none; 
+}
