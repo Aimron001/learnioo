@@ -1,6 +1,7 @@
 import Book from "../../components/book/Book"
 import "./workspace.css"
 import BookPhoto from "../../assets/cardIcon.jpeg";
+import UploadFile from "../../components/uploadFile/UploadFile";
 
 
 export default function Workspace(){
@@ -27,6 +28,7 @@ export default function Workspace(){
                     </div>
                 <div className="books">
                     <Book title="Hardy Boys"/>
+                    <UploadFile />
                 </div>
                 
             </div>

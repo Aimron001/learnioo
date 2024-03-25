@@ -1,0 +1,23 @@
+.file-container > input {
+    display: none;
+}
+.file-container > label > svg {
+    /* color: red; */
+    border: 1px solid #000;
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+
+}
+.file-container > label {
+    color: #000;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px 5px 5px;
+    border-radius: 25px;
+    gap: 10px;
+}
