@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import FormInput from "../../components/formContainer/FormInput";
+import FormInput from "../../components/formInput/FormInput";
 import "./login.css"
 import {faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons'
 
@@ -53,7 +54,7 @@ export default function Login(){
                 />
             })}
             </div>
-            <button className="btn-login" disabled={isLoading}>Login</button>
+            <button className="btn-login" >Login</button>
             <div className='account'>
                 <p>Don`&apos;`t have an account?</p>
                 <Link to="../register">Sign Up</Link>

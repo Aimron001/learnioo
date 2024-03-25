@@ -1,0 +1,32 @@
+.login-container {
+    margin: calc((100vh - 500px)/2) auto;
+    background-color: rgba(95, 158, 160, 0.508);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-container > .account{
+    display: flex;
+    gap: 10px;
+}
+.inputs-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-login {
+    font-size: 1.1rem;
+    border:none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin: 5px;
+}
+.btn-login:hover {
+    background-color: rgb(222, 230, 237);
+}
