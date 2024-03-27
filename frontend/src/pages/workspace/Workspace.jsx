@@ -8,6 +8,7 @@ import { useRetrieveQuery } from '../../features/api/bookApiSlice'
 import { setBooksDetails } from '../../features/books/bookSlice'
 import BookViewer from "../../components/bookViewer/BookViewer";
 import UploadFile from "../../components/uploadFile/UploadFile";
+import Prompt from "../../components/prompt/Prompt";
 // import ReactPDF from '@react-pdf/renderer';
 // import { PDFViewer } from '@react-pdf/renderer';
 
@@ -68,19 +69,10 @@ export default function Workspace(){
             
             <div className="viewer">
                 <div className="prompt-input">
-                    <input type="text" placeholder="Ask AI anything about the book" />
+                    <Prompt content="A semiconductor is a material between conductor and insulator"/>
                 </div>
                 <div className="pdf-viewer">
-                {/* {ReactPDF.render(<MyDocument />, `${books[0]?.book}`)} */}
-                    {/* <PDFViewer>
-                        <MyDocument />
-                    </PDFViewer> */}
                     <BookViewer />
-                    {/* <div className="book-navigation">
-                        <h4>Previous</h4>
-                        <h4>Page 10</h4>
-                        <h4>Next</h4>
-                    </div> */}
                 </div>                
             </div>
             {/* <div className="synopsis-details">

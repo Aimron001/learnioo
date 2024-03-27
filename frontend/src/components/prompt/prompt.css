@@ -1,0 +1,39 @@
+.answer-modal {
+    color: #000;
+    background-color: #fff;
+    /* width: 400px; */
+    /* height: 200px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.464);
+    position: absolute;
+    top: calc((100vh)/2);
+    left:  200px;
+    right:  200px;
+    border: 1px solid cadetblue;
+    z-index: 999999;
+    gap: 10px;
+    
+}
+.answer-modal > button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid cadetblue;
+
+}
+.answer-modal > button:hover {
+    background-color: rgba(95, 158, 160, 0.527);
+
+}
+
+.prompt input {
+    width: 90%;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: none;
+}

@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
-app.use("/uploads", express.static('../uploads'));
+app.use("/uploads", express.static('uploads'));
 app.use('/api/users', userRoutes)
 app.use('/api/books', bookRoutes)
 

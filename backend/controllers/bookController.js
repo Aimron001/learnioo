@@ -1,7 +1,9 @@
 import asyncHandler from 'express-async-handler'
 import Book from '../models/bookModel.js'
-import fs from 'fs'
-import pdfParse from 'pdf-parser'
+import { Client } from "@octoai/client"
+import dotenv from 'dotenv'
+dotenv.config()
+
 
 
 const postBook = asyncHandler(async (req, res) => {
@@ -35,15 +37,24 @@ const getBooks = asyncHandler(async (req, res) => {
       }
 })
 const askQuestion = asyncHandler(async (req, res) => {
-    const dataBuffer = fs.readFileSync(req.body.filepath);
-    try {
-        const data = await pdfParse(dataBuffer);
-        res.status(200).json({text:data.text});
+    const client = new Client(process.env.OCTOAI_TOKEN)
+    const completion = await client.chat.completions.
+    create({
+        "model":"llama-2-13b-chat-fp16",
+        "messages": [
+            {
+                "role": "system",
+                "content":"You are friendly assistant! You answer questions based on the context given. If you don't receive the context, you answer to the best of your knowledge.",
 
-    } catch (error) {
-        console.error("Error extracting PDF text", error);
-        throw new Error('Failed to extract text from PDF');
-    }
-})
+            }, {
+                "role": "user",
+                "content":`context: ${req.body.content}
+                        question: ${req.body.question}`,
+            }
+        ]
+    })
+    res.status(200).json({answer: completion.choices[0].message.content});
+}
+)
 
 export { postBook, getBooks, askQuestion } 

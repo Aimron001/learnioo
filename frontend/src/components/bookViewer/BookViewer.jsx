@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import { useSelector } from 'react-redux';
 import path from 'path'
@@ -14,36 +14,18 @@ export default function BookViewer() {
     let path = books && books[i] && books[i][1]?.book; 
     let resolvedPath = path?.replace(/\\/g, "/");
     const pdf = `http://localhost:5000/${resolvedPath}`;
-    console.log(pdf);
 
-    const { data, error, isLoading} = usePromptMutation({filepath:pdf})
-    console.log("data",data);
-
+  
   function onDocumentLoadSuccess({numPages}) {
     setNumPages(numPages);
   }
 
-  const onRenderSuccess = async (page) => {
-    // Access internal PDF.js page instance
-    const pdfPage = page?.pdfPage;
-    if (!pdfPage) {
-      return;
-    }
-
-    try {
-      const textContent = await pdfPage.getTextContent();
-      const texts = textContent.items.map(item => item.str).join(' ');
-      console.log(texts);
-    } catch (error) {
-      console.error('Error extracting text:', error);
-    }
-  };
 
 
   return (
     <div >
       <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber}  onRenderSuccess={() => onRenderSuccess(page)}/>
+        <Page pageNumber={pageNumber}  renderAnnotationLayer={false} renderTextLayer={false}/>
       </Document>
       <p>
         Page {pageNumber} of {numPages}
