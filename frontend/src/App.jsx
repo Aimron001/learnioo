@@ -1,9 +1,11 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Routes } from "react-router-dom"
 import Home from "./pages/home/Home"
-import Workspace from "./pages/workspace/Workspace"
+import Layout from './components/layout/Layout.jsx'
 import Login from "./pages/login/Login"
-import Register from "./pages/register/Register"
-import Layout from "./components/layout/Layout"
+import SignUp from "./pages/register/Register"
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Workspace from "./pages/workspace/Workspace"
 const router = createBrowserRouter(createRoutesFromElements(
   <>
     <Route path="/" element={<Layout />}>
@@ -11,7 +13,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="workspace" element={<Workspace />} />
     </Route>
     <Route path="/login" element={<Login />} />
-    <Route path="/register" element={<Register />} />
+    <Route path="/register" element={<SignUp />} />
     <Route path="*" element={<h1>404 - not found</h1>} />
   </>
     
@@ -20,6 +22,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 function App() {
   return (
     <>
+    <ToastContainer />
       <RouterProvider router={router} />
     </>
   )

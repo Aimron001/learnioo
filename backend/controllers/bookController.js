@@ -10,11 +10,13 @@ const postBook = asyncHandler(async (req, res) => {
             res.status(500)
             throw new Error('No file found')
         }
+        console.log("before creating")
         const bookFile = await Book.create({
             userId: req.user._id,
             book: req.file.path,
             bookname: req.file.originalname
         })
+        console.log("after creating")
         res.status(201).json(bookFile)
     } catch (error) {
       console.log(error);  
