@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormInput from "../../components/formInput/FormInput";
 import "./register.css"
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRegisterMutation } from '../../features/api/userApiSlice';
+import { setCredentials } from '../../features/auth/authSlice';
 import {faEnvelope, faLock, faUser, faPhone} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import {toast }from 'react-toastify'
 
-export default function SignUp(){
+export default function Register(){
     const [registerData, setRegisterData] = useState({
         email:"",
         password:"",
@@ -14,7 +18,18 @@ export default function SignUp(){
         confirmPassword:"",
     })
 
+    const navigate =  useNavigate()
+    const dispatch = useDispatch()
 
+    const [register, { isLoading }] = useRegisterMutation()
+
+    const { userInfo } = useSelector((state) => state.auth)
+
+    useEffect(() => {
+        if (userInfo) {
+            navigate('../workspace')
+        }
+    }, [navigate, userInfo])
 
     function handleChange(e){
         setRegisterData(prevData => ({
@@ -26,7 +41,17 @@ export default function SignUp(){
     async function handleSubmit(e) {
         e.preventDefault();
 
-
+        if (registerData.password !== registerData.confirmPassword){
+            toast.error("Passwords do not match")
+        } else {
+            try {
+                const res = await register({...registerData}).unwrap();
+                dispatch(setCredentials({...res}))
+                navigate('../workspace')
+            }catch (error) {
+                toast.error(error?.data?.message || error.error)
+            }
+        }
     }
     const registerInputsDataLeft = [
         {
@@ -123,7 +148,7 @@ export default function SignUp(){
                 </div>
                 
             </div>
-            <button className="btn-login" >Sign up</button>
+            <button className="btn-login" disabled={isLoading}>Sign up</button>
             <div className='account'>
                 <p>Already have an account?</p>
                 <Link to="../login">Login</Link>
