@@ -26,7 +26,6 @@ const postBook = asyncHandler(async (req, res) => {
 })
 const getBooks = asyncHandler(async (req, res) => {
     if (req.user) {
-        // console.log(req.user._id)
         const books = await Book.find({userId: req.user._id})
         if (books){
             res.status(200).json(books)

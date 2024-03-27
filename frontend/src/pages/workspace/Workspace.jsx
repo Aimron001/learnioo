@@ -9,6 +9,7 @@ import { setBooksDetails } from '../../features/books/bookSlice'
 import BookViewer from "../../components/bookViewer/BookViewer";
 import UploadFile from "../../components/uploadFile/UploadFile";
 import Prompt from "../../components/prompt/Prompt";
+import { getDate } from "../../../utils";
 // import ReactPDF from '@react-pdf/renderer';
 // import { PDFViewer } from '@react-pdf/renderer';
 
@@ -47,16 +48,16 @@ export default function Workspace(){
                     <div className="reading">
                         <div className="profile">
                             <img src={BookPhoto} alt="" />
-                            <p>Thursday</p>
-                            <p>8 PM</p>
+                            <p>{getDate().currentDay}</p>
+                            <p>{getDate().formattedTime}</p>
                         </div>
                         <div className="details">
                                 <h2>{`${userInfo?.firstname} ${userInfo?.lastname}`}</h2>
-                            <div className="current-book">
+                            {/* <div className="current-book">
                                 <img src={BookPhoto} alt="" />
                                 <p>Hardy Boys</p>
                             </div>
-                                <p>Continue reading</p>
+                                <p>Continue reading</p> */}
                         </div>
                     </div>
                 <div className="books">

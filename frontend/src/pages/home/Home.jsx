@@ -10,10 +10,10 @@ const cardsData = [
     },
     {
         id: 2,
-        title: "Access reading",
+        title: "AI study buddy",
         cardIcon: "cardIcon url",
         subTitle:"Resources",
-        content:"Get access to a vast library of reading resources"
+        content:"Ask AI any question about anything."
     },
     {
         id: 3,

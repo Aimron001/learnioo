@@ -39,9 +39,9 @@
 }
 .prompt > form button {
     border: none;
-    /* background: transparent; */
     padding: 5px;
     border-radius: 15px;
+    margin-left: 10px;
 }
 .prompt > form button:hover {
     background-color: rgba(95, 158, 160, 0.383);
