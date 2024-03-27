@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './prompt.css'
 import { usePromptMutation } from '../../features/api/bookApiSlice'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 export default function Prompt(props){
     const [showAnswer, setShowAnswer] = useState(false)
@@ -19,7 +21,7 @@ export default function Prompt(props){
         <div className='prompt'>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Ask AI anything about the book" onChange={(e) => setQuestion(e.target.value)}/>
-                <button>Q</button>
+                <button><FontAwesomeIcon icon={faComment} /></button>
             </form>
             {showAnswer && (
                 <div className='answer-modal'>

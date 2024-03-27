@@ -37,3 +37,16 @@
     border-radius: 20px;
     border: none;
 }
+.prompt > form button {
+    border: none;
+    /* background: transparent; */
+    padding: 5px;
+    border-radius: 15px;
+}
+.prompt > form button:hover {
+    background-color: rgba(95, 158, 160, 0.383);
+}
+.prompt > form button > svg {
+    color: cadetblue;
+    font-size: 20px;
+}
