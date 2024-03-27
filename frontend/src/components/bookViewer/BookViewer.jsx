@@ -13,7 +13,7 @@ export default function BookViewer() {
     const i = books?.length ? books.length - 1 : 0;
     let path = books && books[i] && books[i][1]?.book; 
     let resolvedPath = path?.replace(/\\/g, "/");
-    const pdf = `http://localhost:6000/${resolvedPath}`;
+    const pdf = `http://localhost:5000/${resolvedPath}`;
     console.log(pdf);
 
     const { data, error, isLoading} = usePromptMutation({filepath:pdf})
